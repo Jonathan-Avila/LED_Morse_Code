@@ -1,1 +1,1 @@
-Python script for running a morse code website connected to an LED through a raspberry pi. The server must be run on a Raspberry pi connected to a breadboard using an LED. Website works on port 8000
+Python script for running a morse code website connected to an LED through a raspberry pi. The server must be run on a Raspberry pi connected to a breadboard using an LED and buzzer. LED is connected to pin 17 and buzzer is connected to pin 22. Website works on port 8000.
