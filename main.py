@@ -1,8 +1,10 @@
 from flask import Flask, render_template
 from gpiozero import LED
+from gpiozero import Buzzer
 from time import sleep
 
 led=LED(17)
+buzzer = Buzzer(22)
 app = Flask(__name__)
 
 @app.route('/json')
@@ -12,15 +14,19 @@ def json():
 @app.route('/dot')
 def dot():
     led.on()
+    buzzer.on()
     sleep(0.1)
     led.off()
+    buzzer.off()
     return render_template('json.html')
 
 @app.route('/dash')
 def dash():
     led.on()
+    buzzer.on()
     sleep(0.5)
     led.off()
+    buzzer.off()
     return render_template('json.html')
 
 if __name__ == "__main__":
