@@ -1,4 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" type="image/x-ico" href="https://raw.githubusercontent.com/Jonathan-Avila/favicon_J/main/favicon.ico"/>
+</head>
+<title>Morse Code</title>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script type=text/javascript>
+        $(function() {
+          $('a#transmission').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/transmission',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+</script>
+
+
+
+<div class='container'>
+    <h3>Press This Button When You're About To Send a Message. Then Wait 3 Seconds Before Continuing</h3>
+        <form>
+            <a href=# id=transmission><button class='btn btn-default'>transmission About To Begin</button></a>
+        </form>
+
+</div>
+
 <script type=text/javascript>
         $(function() {
           $('a#dot').on('click', function(e) {
@@ -44,4 +75,3 @@
         </form>
 
 </div>
-

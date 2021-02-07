@@ -11,6 +11,15 @@ app = Flask(__name__)
 def json():
     return render_template('json.html')
 
+@app.route('/transmission')
+def transmission_start():
+    led.on()
+    buzzer.on()
+    sleep(3)
+    led.off()
+    buzzer.off()
+    return render_template('json.html')
+
 @app.route('/dot')
 def dot():
     led.on()
