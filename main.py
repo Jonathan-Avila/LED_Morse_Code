@@ -1,8 +1,6 @@
 from flask import Flask, render_template
-from flask import Flask, render_template
 from gpiozero import LED
 from time import sleep
-from pynput.mouse import Listener
 
 led=LED(17)
 app = Flask(__name__)
