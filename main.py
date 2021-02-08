@@ -39,4 +39,5 @@ def dash():
     return render_template('json.html')
 
 if __name__ == "__main__":
+    print("Morse Code is On")
     app.run(host='0.0.0.0', port=8000, debug=False)
