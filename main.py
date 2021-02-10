@@ -1,6 +1,5 @@
 from flask import Flask, render_template
-from gpiozero import LED
-from gpiozero import Buzzer
+from gpiozero import LED, Buzzer
 from time import sleep
 
 led=LED(17)
@@ -12,10 +11,10 @@ def json():
     return render_template('json.html')
 
 @app.route('/transmission')
-def transmission_start():
-    led.on()
-    buzzer.on()
-    sleep(3)
+def transmission_start_end():
+    led.blink(0.025,0.025)
+    buzzer.beep(0.025,0.025)
+    sleep(2)
     led.off()
     buzzer.off()
     return render_template('json.html')
