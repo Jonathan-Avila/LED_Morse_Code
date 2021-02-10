@@ -1,9 +1,10 @@
 from flask import Flask, render_template
-from gpiozero import LED, Buzzer
+from gpiozero import LED, Buzzer, TonalBuzzer
+from gpiozero.tones import Tone
 from time import sleep
 
 led=LED(17)
-buzzer = Buzzer(22)
+
 app = Flask(__name__)
 
 @app.route('/json')
@@ -12,29 +13,37 @@ def json():
 
 @app.route('/transmission')
 def transmission_start_end():
+    tbuzzer = TonalBuzzer(22)
     led.blink(0.025,0.025)
-    buzzer.beep(0.025,0.025)
-    sleep(2)
+    tbuzzer.play(Tone(frequency=500))
+    #buzzer.beep(0.025,0.025)
+    sleep(3)
     led.off()
-    buzzer.off()
+    tbuzzer.stop()
+    tbuzzer.close()
+    #buzzer.off()
     return render_template('json.html')
 
 @app.route('/dot')
 def dot():
+    buzzer = Buzzer(22)
     led.on()
     buzzer.on()
     sleep(0.1)
     led.off()
     buzzer.off()
+    buzzer.close()
     return render_template('json.html')
 
 @app.route('/dash')
 def dash():
+    buzzer = Buzzer(22)
     led.on()
     buzzer.on()
     sleep(0.5)
     led.off()
     buzzer.off()
+    buzzer.close()
     return render_template('json.html')
 
 if __name__ == "__main__":
