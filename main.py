@@ -16,12 +16,10 @@ def transmission_start_end():
     tbuzzer = TonalBuzzer(22)
     led.blink(0.025,0.025)
     tbuzzer.play(Tone(frequency=500))
-    #buzzer.beep(0.025,0.025)
     sleep(3)
     led.off()
     tbuzzer.stop()
     tbuzzer.close()
-    #buzzer.off()
     return render_template('json.html')
 
 @app.route('/dot')
